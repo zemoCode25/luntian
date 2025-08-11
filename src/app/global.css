@@ -110,6 +110,11 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@theme {
+  --color-accent: #568d6f;
+  --color-main: #ecf0ef;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

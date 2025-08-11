@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./global.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/context/NextThemeProvider";
+import { Suspense } from "react";
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -19,9 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <Suspense>
+          <ThemeProvider>{children}</ThemeProvider>
+        </Suspense>
       </body>
     </html>
   );
