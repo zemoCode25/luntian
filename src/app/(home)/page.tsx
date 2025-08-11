@@ -4,7 +4,7 @@ import Header from "./components/Header";
 
 export default function Home() {
   return (
-    <div className="w-[80rem] mx-auto bg-main">
+    <div className="bg-main">
       <Header />
     </div>
   );
