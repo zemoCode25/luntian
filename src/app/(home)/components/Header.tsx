@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-center dark:bg-green-900 border-b border-gray-b-300 dark:border-bgray-600">
+    <header className="flex items-center justify-center border-b border-gray-b-300 dark:border-bgray-600">
       <section className="flex px-8 py-4 w-full max-w-[1280px] justify-between items-center">
         <Link href={"/"}>
           <span className="flex justify-between gap-2">
