@@ -18,13 +18,35 @@ export default function Hero() {
           Get Started
         </Button>
       </div>
-      <div>
-        <div className="vw- lg:min-w-[30rem] lg:h-[300px] min-w-[25rem] h-[13rem] relative">
+      {/* animal images */}
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex gap-4">
+          {/* cat image */}
+          <div className="lg:min-w-[15rem] lg:h-[150px] md:min-w-[17.5rem] md:h-[10rem] min-w-[12rem] h-[8rem] relative">
+            <Image
+              src="/images/cat_consulted.jpg"
+              fill
+              alt="Description"
+              className="object-cover rounded-xl border-2 border-accent dark:shadow-md shadow-green-800/10 dark:shadow-accent"
+            />
+          </div>
+          {/* dog image */}
+          <div className="lg:min-w-[15rem] lg:h-[150px] md:min-w-[17.5rem] md:h-[10rem] min-w-[12rem] h-[8rem] relative">
+            <Image
+              src="/images/dog_consulted.webp"
+              fill
+              alt="Description"
+              className="object-cover rounded-xl border-2 border-accent dark:shadow-md shadow-green-800/10 dark:shadow-accent"
+            />
+          </div>
+        </div>
+        {/* rabbit image */}
+        <div className="lg:min-w-[30rem] lg:h-[17rem] md:min-w-[35rem] md:min-h-[15rem] min-w-[25rem] h-[10rem] relative">
           <Image
             src="/images/rabbit_consulted.jpg"
             fill
             alt="Description"
-            className="object-cover rounded-3xl shadow-xl dark:shadow-lg shadow-green-800/10 dark:shadow-accent"
+            className="object-cover rounded-3xl border-2 border-accent dark:shadow-lg  dark:shadow-accent"
           />
         </div>
       </div>
