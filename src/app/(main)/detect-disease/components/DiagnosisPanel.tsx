@@ -19,14 +19,14 @@ export default function DiagnosisPanel() {
   };
   return (
     <div>
-      <div className="w-1/2 max-w-[350px]">
+      <div className="w-1/2 max-w-[25rem]">
         <FileUploader
           handleChange={handleChange}
           name="file"
           types={fileTypes}
           maxSize={10}
         >
-          <Card className="flex flex-col text-gray-600 items-center justify-center p-4 bg-transparent border border-dashed border-gray-600 gap-0 py-20">
+          <Card className="flex flex-col text-gray-600 items-center justify-center p-4 bg-transparent border border-dashed border-accent gap-0 py-20">
             <Camera size={30} />
             <h2 className="font-semibold text-2xl">Drop your image here</h2>
             <p className="text-base text-gray-400">or click to browse</p>
