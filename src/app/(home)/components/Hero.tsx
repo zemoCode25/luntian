@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Lens } from "@/components/magicui/lens";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -15,9 +16,11 @@ export default function Hero() {
           Harness the power of AI to identify potential diseases in pets or
           livestock. Simply upload a photo, get instant diagnosis.
         </p>
-        <Button className="w-fit bg-accent py-6 px-8 hover:bg-green-700 cursor-pointer">
-          Get Started
-        </Button>
+        <Link href={"/detect-disease"}>
+          <Button className="w-fit bg-accent py-6 px-8 hover:bg-green-700 cursor-pointer">
+            Get Started
+          </Button>
+        </Link>
       </div>
       {/* animal images */}
       <div className="flex flex-col items-center justify-center gap-4 w-full lg:w-auto">
