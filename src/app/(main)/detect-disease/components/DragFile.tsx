@@ -1,14 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import { Card } from "@/components/ui/card";
 import { Camera } from "lucide-react";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
-export default function DragFile() {
-  const [file, setFile] = useState<File | null>(null);
-
+export default function DragFile({
+  setFile,
+}: {
+  setFile: React.Dispatch<SetStateAction<File | null>>;
+}) {
   const handleChange = (file: File | File[]) => {
     if (Array.isArray(file)) {
       // If multiple files are passed, pick the first

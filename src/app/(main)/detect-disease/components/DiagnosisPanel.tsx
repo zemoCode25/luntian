@@ -1,8 +1,39 @@
+"use client";
 import DragFile from "./DragFile";
 import DiagnosisResult from "./DiagnosisResult";
 import { Card } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 
 export default function DiagnosisPanel() {
+  const [file, setFile] = useState<File | null>(null);
+
+  console.log(process.env.HF_TOKEN);
+
+  async function animalDisease(file: File | null) {
+    if (!file) {
+      return "No file selected";
+    }
+
+    const response = await fetch("/api/disease", {
+      method: "POST",
+      body: file, // send raw file buffer
+    });
+
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    return result;
+  }
+
+  useEffect(() => {
+    if (!file) return;
+    (async () => {
+      const result = await animalDisease(file);
+      console.log(result);
+    })();
+  }, [file]);
   return (
     <section className="flex flex-col w-full mx-auto max-w-[1280px]">
       <div className="flex flex-col items-center mt-7 mb-3">
@@ -25,7 +56,7 @@ export default function DiagnosisPanel() {
               </strong>
             </p>
           </Card>
-          <DragFile />
+          <DragFile setFile={setFile} />
         </div>
         <DiagnosisResult />
       </div>
