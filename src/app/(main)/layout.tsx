@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../global.css";
 import { Inter } from "next/font/google";
+import Header from "../(home)/components/Header";
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -17,5 +18,10 @@ export default function MainLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className={`${inter.className}`}>{children}</div>;
+  return (
+    <div className={`${inter.className}`}>
+      <Header />
+      {children}
+    </div>
+  );
 }
