@@ -36,7 +36,7 @@ export default function HeaderDialog({
       </ul>
       <Button
         onClick={closeHeaderDialog}
-        className="bg-transparent text-accent cursor-pointer hover:bg-gray-200 size-8"
+        className="bg-transparent text-accent cursor-pointer hover:bg-transparent size-8 shadow-none"
         size="icon"
         asChild
       >
