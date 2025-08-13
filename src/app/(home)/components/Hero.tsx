@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Lens } from "@/components/magicui/lens";
 
 export default function Hero() {
   return (
@@ -42,14 +43,13 @@ export default function Hero() {
           </div>
         </div>
         {/* rabbit image */}
-        <div className="lg:min-w-[30rem] lg:h-[17rem] md:max-w-[35rem] md:min-h-[15rem] max-w-[25rem] w-full h-[10rem] relative">
-          <Image
+        <Lens>
+          <img
             src="/images/rabbit_consulted.jpg"
-            fill
             alt="Description"
-            className="object-cover rounded-3xl border-2 border-accent dark:shadow-lg  dark:shadow-accent"
+            className="object-cover rounded-3xl border-2 border-accent dark:shadow-lg  dark:shadow-accent lg:min-w-[30rem] lg:h-[17rem] md:max-w-[35rem] md:min-h-[15rem] max-w-[25rem] w-full h-[10rem]"
           />
-        </div>
+        </Lens>
       </div>
     </section>
   );
