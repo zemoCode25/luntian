@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { PawPrint } from "lucide-react";
-import { ModeToggle as ThemeModeToggle } from "@/components/utils/ThemeModeToggle";
 import HeaderDialog from "./HeaderDialog";
 import Link from "next/link";
 
@@ -29,7 +28,7 @@ export default function MobileHeader() {
           <span className="block h-1 w-6 bg-accent"></span>
         </button>
       </section>
-      <HeaderDialog isHeaderDialogOpen={isHeaderDialogOpen} />
+      {isHeaderDialogOpen && <HeaderDialog />}
     </header>
   );
 }
