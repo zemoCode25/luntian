@@ -9,11 +9,12 @@ export default function DetectPage() {
           Upload a photo and let AI instantly identify signs of potential
           illness in your animal.
         </p>
-        <div className="bg-green-900 rounded-md flex flex-col items-center w-fit max-w-[35rem] p-4">
+        {/* user disclaimer */}
+        <div className="dark:bg-green-900 bg-accent text-white rounded-md flex flex-col items-center w-fit max-w-[35rem] p-4">
           <span className="uppercase block font-bold">important note:</span>
           <p className="w-full max-w-[40rem] text-center">
             Results are for guidance only and not a definitive diagnosis. <br />
-            <strong className="text-green-300">
+            <strong className="text-green-200">
               Always seek professional veterinary advice.
             </strong>
           </p>
