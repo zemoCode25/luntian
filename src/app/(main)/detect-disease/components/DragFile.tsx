@@ -18,7 +18,7 @@ export default function DragFile() {
     }
   };
   return (
-    <div className="w-1/2 max-w-[25rem]">
+    <div className="max-w-[25rem]">
       <FileUploader
         handleChange={handleChange}
         name="file"
