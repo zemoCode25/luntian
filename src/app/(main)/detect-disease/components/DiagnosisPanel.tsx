@@ -1,41 +1,27 @@
-"use client";
-import React, { useState } from "react";
-import { FileUploader } from "react-drag-drop-files";
+import DragFile from "./DragFile";
 import { Card } from "@/components/ui/card";
-import { Camera } from "lucide-react";
-
-const fileTypes = ["JPG", "PNG", "GIF"];
 
 export default function DiagnosisPanel() {
-  const [file, setFile] = useState<File | null>(null);
-
-  const handleChange = (file: File | File[]) => {
-    if (Array.isArray(file)) {
-      // If multiple files are passed, pick the first
-      setFile(file[0]);
-    } else {
-      setFile(file);
-    }
-  };
   return (
-    <div>
-      <div className="w-1/2 max-w-[25rem]">
-        <FileUploader
-          handleChange={handleChange}
-          name="file"
-          types={fileTypes}
-          maxSize={10}
-        >
-          <Card className="flex flex-col text-gray-600 items-center justify-center p-4 bg-transparent border border-dashed border-accent gap-0 py-20">
-            <Camera size={30} />
-            <h2 className="font-semibold text-2xl dark:text-white">
-              Drop your image here
-            </h2>
-            <p className="text-base text-gray-400">or click to browse</p>
-            <small className="text-gray-400">PNG, JPEG with maximum 10mb</small>
-          </Card>
-        </FileUploader>
+    <section className="flex flex-col w-full mx-auto max-w-[1280px]">
+      <div className="flex flex-col items-center mt-5">
+        <h1 className="text-4xl font-bold">Detect Possible Animal Disease</h1>
+        <p className="dark:text-gray-400 mb-4 text-sm">
+          Upload a photo and let AI instantly identify signs of potential
+          illness in your animal.
+        </p>
       </div>
-    </div>
+      {/* user disclaimer */}
+      <Card className="dark:bg-green-900 rounded-md flex flex-col w-fit max-w-[25rem] p-4 !gap-0 mb-4 bg-accent/10">
+        <span className="uppercase block font-bold">important note:</span>
+        <p className="w-full max-w-[40rem]">
+          Results are for guidance only and not a definitive diagnosis. <br />
+          <strong className="text-green-800 dark:text-green-400">
+            Always seek professional veterinary advice.
+          </strong>
+        </p>
+      </Card>
+      <DragFile />
+    </section>
   );
 }
