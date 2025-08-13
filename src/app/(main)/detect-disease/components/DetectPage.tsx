@@ -16,7 +16,7 @@ export default function DetectPage() {
         <span className="uppercase block font-bold">important note:</span>
         <p className="w-full max-w-[40rem]">
           Results are for guidance only and not a definitive diagnosis. <br />
-          <strong className="text-green-800">
+          <strong className="text-green-800 dark:text-green-400">
             Always seek professional veterinary advice.
           </strong>
         </p>

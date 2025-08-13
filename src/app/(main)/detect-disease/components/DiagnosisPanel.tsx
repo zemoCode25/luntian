@@ -28,7 +28,9 @@ export default function DiagnosisPanel() {
         >
           <Card className="flex flex-col text-gray-600 items-center justify-center p-4 bg-transparent border border-dashed border-accent gap-0 py-20">
             <Camera size={30} />
-            <h2 className="font-semibold text-2xl">Drop your image here</h2>
+            <h2 className="font-semibold text-2xl dark:text-white">
+              Drop your image here
+            </h2>
             <p className="text-base text-gray-400">or click to browse</p>
             <small className="text-gray-400">PNG, JPEG with maximum 10mb</small>
           </Card>
