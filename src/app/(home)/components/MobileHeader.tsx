@@ -10,6 +10,10 @@ export default function MobileHeader() {
   function handleToggle() {
     setHeaderDialogOpen((prevHeaderDialog) => !prevHeaderDialog);
   }
+
+  function closeHeaderDialog() {
+    setHeaderDialogOpen(false);
+  }
   return (
     <header className="flex items-center justify-center border-b border-gray-b-300 dark:border-bgray-600">
       <section className="flex px-8 py-4 w-full max-w-[1280px] justify-between items-center">
@@ -28,7 +32,9 @@ export default function MobileHeader() {
           <span className="block h-1 w-6 bg-accent"></span>
         </button>
       </section>
-      {isHeaderDialogOpen && <HeaderDialog />}
+      {isHeaderDialogOpen && (
+        <HeaderDialog closeHeaderDialog={closeHeaderDialog} />
+      )}
     </header>
   );
 }

@@ -4,10 +4,15 @@ import {
 } from "@/components/utils/ThemeModeToggle";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-export default function HeaderDialog() {
+export default function HeaderDialog({
+  closeHeaderDialog,
+}: {
+  closeHeaderDialog: () => void;
+}) {
   return (
-    <header className="fixed top-0 bottom-0 left-0 right-0 flex justify-between z-50 bg-main p-5 dark:bg-green-950">
+    <header className="fixed top-0 bottom-0 left-0 right-0 flex justify-between z-50 bg-main py-4 px-7 dark:bg-green-950">
       <div>
         <ThemeModeToggle />
       </div>
@@ -29,9 +34,14 @@ export default function HeaderDialog() {
           </li>
         </Link>
       </ul>
-      <div>
-        <X />
-      </div>
+      <Button
+        onClick={closeHeaderDialog}
+        className="bg-transparent text-accent cursor-pointer hover:bg-gray-200 size-8"
+        size="icon"
+        asChild
+      >
+        <X className="text-accent" />
+      </Button>
     </header>
   );
 }
