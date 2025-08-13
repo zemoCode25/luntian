@@ -2,7 +2,7 @@ import DiagnosisPanel from "./DiagnosisPanel";
 
 export default function DetectPage() {
   return (
-    <section className="flex flex-col items-center justify-center mx-auto max-w-[1280px]">
+    <section className="flex flex-col w-full mx-auto max-w-[1280px]">
       <div className="flex flex-col items-center mt-5">
         <h1 className="text-4xl font-bold">Detect Possible Animal Disease</h1>
         <p className="dark:text-gray-400 mb-4 text-sm">
@@ -20,6 +20,7 @@ export default function DetectPage() {
           </p>
         </div>
       </div>
+      <DiagnosisPanel />
     </section>
   );
 }
