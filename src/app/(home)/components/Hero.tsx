@@ -11,7 +11,7 @@ export default function Hero() {
         <h1 className="text-accent dark:text-main text-4xl font-bold text-center md:text-6xl lg:text-left">
           From Leaf Spots to Solutions in Seconds
         </h1>
-        <p className="w-full text-gray-600 max-w-[30rem] text-lg dark:text-gray-300 text-center lg:text-left text-sm lg:text-base">
+        <p className="w-full text-gray-600 max-w-[30rem] dark:text-gray-300 text-center lg:text-left text-sm lg:text-base">
           Simply snap, upload, and receive instant diagnosis with actionable
           treatment plans.
         </p>
