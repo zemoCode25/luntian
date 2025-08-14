@@ -40,10 +40,10 @@ export default function DiagnosisPanel() {
   return (
     <section className="flex flex-col w-full mx-auto max-w-[1280px]">
       <div className="flex flex-col items-center mt-7 mb-3">
-        <h1 className="text-4xl font-bold">Detect Possible Animal Disease</h1>
+        <h1 className="text-4xl font-bold">Detect Possible Plant Disease</h1>
         <p className="dark:text-gray-400 mb-4 text-sm">
-          Upload a photo and let AI instantly identify signs of potential
-          illness in your animal.
+          Upload a photo and let AI identify signs of potential illness in your
+          plants.
         </p>
       </div>
       <div className="flex justify-between gap-10">
@@ -52,7 +52,9 @@ export default function DiagnosisPanel() {
           <Card className="dark:bg-green-900 rounded-md flex flex-col w-fit max-w-[25rem] p-4 !gap-0 mb-4 bg-accent/10">
             <span className="uppercase block font-bold">important note:</span>
             <p className="w-full max-w-[40rem]">
-              Results are for guidance only and not a definitive diagnosis.{" "}
+              Results are for guidance only and{" "}
+              <span className="uppercase font-bold">not</span> a definitive
+              diagnosis.
               <br />
               <strong className="text-green-800 dark:text-green-400">
                 Always seek professional veterinary advice.

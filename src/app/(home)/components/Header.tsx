@@ -2,15 +2,26 @@ import React from "react";
 import { PawPrint } from "lucide-react";
 import { ModeToggle as ThemeModeToggle } from "@/components/utils/ThemeModeToggle";
 import Link from "next/link";
+import Image from "next/image";
+import { Leaf } from "lucide-react";
 
 export default function Header() {
   return (
     <header className="flex items-center justify-center border-b border-gray-b-300 dark:border-bgray-600">
       <section className="flex px-8 py-4 w-full max-w-[1280px] justify-between items-center">
         <Link href={"/"}>
-          <span className="flex justify-between gap-2">
-            <PawPrint color="#568d6f" />
-            <span className="text-lg font-bold">PetVision</span>
+          <span className="flex items-center justify-center gap-1">
+            <div className="w-5 h-5 relative rounded-full">
+              <Image
+                src="/images/luntian_logo.png"
+                fill
+                alt="Description"
+                className="object-cover rounded-full"
+              />
+            </div>
+            <p className="text-lg font-bold dark:text-main leading-none h-fit">
+              Luntian
+            </p>
           </span>
         </Link>
         <ul className="flex justify-between gap-4">
