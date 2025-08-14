@@ -7,36 +7,36 @@ import { Leaf } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-center border-b border-gray-b-300 dark:border-bgray-600">
-      <section className="flex px-8 py-4 w-full max-w-[1280px] justify-between items-center">
+    <header className="border-gray-b-300 dark:border-bgray-600 flex items-center justify-center border-b">
+      <section className="flex w-full max-w-[1280px] items-center justify-between px-8 py-4">
         <Link href={"/"}>
           <span className="flex items-center justify-center gap-1">
-            <div className="w-5 h-5 relative rounded-full">
+            <div className="relative h-5 w-5 rounded-full">
               <Image
                 src="/images/luntian_logo.png"
                 fill
                 alt="Description"
-                className="object-cover rounded-full"
+                className="rounded-full object-cover"
               />
             </div>
-            <p className="text-lg font-bold dark:text-main leading-none h-fit">
+            <p className="dark:text-main h-fit text-lg leading-none font-bold">
               Luntian
             </p>
           </span>
         </Link>
         <ul className="flex justify-between gap-4">
           <Link href={"/"}>
-            <li className="px-4 py-2 hover:bg-accent hover:text-gray-100 rounded-md cursor-pointer">
+            <li className="hover:bg-accent cursor-pointer rounded-md px-4 py-2 hover:text-gray-100">
               Home
             </li>
           </Link>
           <Link href={"/about-us"}>
-            <li className="px-4 py-2 hover:bg-accent hover:text-gray-100 rounded-md cursor-pointer">
+            <li className="hover:bg-accent cursor-pointer rounded-md px-4 py-2 hover:text-gray-100">
               About Us
             </li>
           </Link>
           <Link href={"/queries"}>
-            <li className="px-4 py-2 hover:bg-accent hover:text-gray-100 rounded-md cursor-pointer">
+            <li className="hover:bg-accent cursor-pointer rounded-md px-4 py-2 hover:text-gray-100">
               Queries
             </li>
           </Link>
