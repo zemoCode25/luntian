@@ -1,7 +1,28 @@
 import { Card } from "@/components/ui/card";
-
-export default function DiagnosisResult() {
+import { TDiseaseClassification } from "@/types/TDiagnosisDetails";
+export default function DiagnosisResult({
+  diagnosisList,
+}: {
+  diagnosisList: TDiseaseClassification[] | undefined;
+}) {
   return (
-    <Card className="min-h-[40rem] bg-transparent border-accent w-8/10"></Card>
+    <Card className="border-accent min-h-[40rem] w-8/10 bg-transparent">
+      {diagnosisList?.map((diagnosis, index) => (
+        <DiagnosisCard diagnosis={diagnosis} key={index} />
+      ))}
+    </Card>
+  );
+}
+
+export function DiagnosisCard({
+  diagnosis,
+}: {
+  diagnosis: TDiseaseClassification;
+}) {
+  return (
+    <Card>
+      <h1>{diagnosis.label}</h1>
+      <p>{diagnosis.score}</p>
+    </Card>
   );
 }

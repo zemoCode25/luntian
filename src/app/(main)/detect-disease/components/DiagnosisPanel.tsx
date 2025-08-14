@@ -4,9 +4,13 @@ import DiagnosisResult from "./DiagnosisResult";
 import { Card } from "@/components/ui/card";
 import { getPlantDisease } from "@/lib/actions/get-plant-disease";
 import { useMutation } from "@tanstack/react-query";
+import { TDiseaseClassification } from "@/types/TDiagnosisDetails";
 import { useState } from "react";
 
 export default function DiagnosisPanel() {
+  const [diagnosisList, setDiagnosisList] = useState<
+    TDiseaseClassification[] | undefined
+  >(undefined);
   const [file, setFile] = useState<File | File[]>();
 
   const mutation = useMutation({
@@ -16,7 +20,7 @@ export default function DiagnosisPanel() {
   const handleChange = async (file: File | File[]) => {
     const singleFile = Array.isArray(file) ? file[0] : file;
     const response = await mutation.mutateAsync(singleFile ?? null);
-    console.log(response);
+    setDiagnosisList(response);
     setFile(singleFile);
   };
 
@@ -46,7 +50,7 @@ export default function DiagnosisPanel() {
           </Card>
           <DragFile handleChange={handleChange} />
         </div>
-        <DiagnosisResult />
+        <DiagnosisResult diagnosisList={diagnosisList} />
       </div>
     </section>
   );
