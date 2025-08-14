@@ -27,12 +27,15 @@ export default function DiagnosisPanel() {
     return result;
   }
 
+  async function fetchPlantDisease() {
+    const result = await animalDisease(file);
+    console.log(result);
+  }
+
   useEffect(() => {
     if (!file) return;
-    (async () => {
-      const result = await animalDisease(file);
-      console.log(result);
-    })();
+    console.log(file.type);
+    fetchPlantDisease();
   }, [file]);
   return (
     <section className="flex flex-col w-full mx-auto max-w-[1280px]">
