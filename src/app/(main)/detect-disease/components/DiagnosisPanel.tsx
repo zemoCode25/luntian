@@ -2,43 +2,26 @@
 import DragFile from "./DragFile";
 import DiagnosisResult from "./DiagnosisResult";
 import { Card } from "@/components/ui/card";
-import { useEffect, useState } from "react";
+import { getPlantDisease } from "@/lib/actions/get-plant-disease";
+import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
 
 export default function DiagnosisPanel() {
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File | File[]>();
 
-  console.log(process.env.HF_TOKEN);
+  const mutation = useMutation({
+    mutationFn: getPlantDisease,
+  });
 
-  async function getPlantDisease(file: File | null) {
-    if (!file) {
-      return "No file selected";
-    }
+  const handleChange = async (file: File | File[]) => {
+    const singleFile = Array.isArray(file) ? file[0] : file;
+    const response = await mutation.mutateAsync(singleFile ?? null);
+    console.log(response);
+    setFile(singleFile);
+  };
 
-    const response = await fetch("/api/disease", {
-      method: "POST",
-      body: file, // send raw file buffer
-    });
-
-    if (!response.ok) {
-      throw new Error(`Server error: ${response.statusText}`);
-    }
-
-    const result = await response.json();
-    return result;
-  }
-
-  async function fetchPlantDisease() {
-    const result = await getPlantDisease(file);
-    console.log(result);
-  }
-
-  useEffect(() => {
-    if (!file) return;
-    console.log(file.type);
-    fetchPlantDisease();
-  }, [file]);
   return (
-    <section className="mx-auto flex w-full max-w-[1280px] flex-col">
+    <section className="mx-auto flex w-[95%] max-w-[1280px] flex-col">
       <div className="mt-7 mb-3 flex flex-col items-center">
         <h1 className="text-4xl font-bold">Detect Possible Plant Disease</h1>
         <p className="mb-4 text-sm dark:text-gray-400">
@@ -61,7 +44,7 @@ export default function DiagnosisPanel() {
               </strong>
             </p>
           </Card>
-          <DragFile setFile={setFile} />
+          <DragFile handleChange={handleChange} />
         </div>
         <DiagnosisResult />
       </div>

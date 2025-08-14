@@ -7,18 +7,10 @@ import { Camera } from "lucide-react";
 const fileTypes = ["JPG", "PNG", "GIF"];
 
 export default function DragFile({
-  setFile,
+  handleChange,
 }: {
-  setFile: React.Dispatch<SetStateAction<File | null>>;
+  handleChange: (file: File | File[]) => void;
 }) {
-  const handleChange = (file: File | File[]) => {
-    if (Array.isArray(file)) {
-      // If multiple files are passed, pick the first
-      setFile(file[0]);
-    } else {
-      setFile(file);
-    }
-  };
   return (
     <div className="max-w-[25rem]">
       <FileUploader
@@ -27,9 +19,9 @@ export default function DragFile({
         types={fileTypes}
         maxSize={10}
       >
-        <Card className="flex flex-col text-gray-600 items-center justify-center p-4 bg-transparent border border-dashed border-accent gap-0 py-20">
+        <Card className="border-accent flex flex-col items-center justify-center gap-0 border border-dashed bg-transparent p-4 py-20 text-gray-600">
           <Camera size={30} />
-          <h2 className="font-semibold text-2xl dark:text-white">
+          <h2 className="text-2xl font-semibold dark:text-white">
             Drop your image here
           </h2>
           <p className="text-base text-gray-400">or click to browse</p>
