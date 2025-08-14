@@ -9,7 +9,7 @@ export default function DiagnosisPanel() {
 
   console.log(process.env.HF_TOKEN);
 
-  async function animalDisease(file: File | null) {
+  async function getPlantDisease(file: File | null) {
     if (!file) {
       return "No file selected";
     }
@@ -28,7 +28,7 @@ export default function DiagnosisPanel() {
   }
 
   async function fetchPlantDisease() {
-    const result = await animalDisease(file);
+    const result = await getPlantDisease(file);
     console.log(result);
   }
 
@@ -38,10 +38,10 @@ export default function DiagnosisPanel() {
     fetchPlantDisease();
   }, [file]);
   return (
-    <section className="flex flex-col w-full mx-auto max-w-[1280px]">
-      <div className="flex flex-col items-center mt-7 mb-3">
+    <section className="mx-auto flex w-full max-w-[1280px] flex-col">
+      <div className="mt-7 mb-3 flex flex-col items-center">
         <h1 className="text-4xl font-bold">Detect Possible Plant Disease</h1>
-        <p className="dark:text-gray-400 mb-4 text-sm">
+        <p className="mb-4 text-sm dark:text-gray-400">
           Upload a photo and let AI identify signs of potential illness in your
           plants.
         </p>
@@ -49,11 +49,11 @@ export default function DiagnosisPanel() {
       <div className="flex justify-between gap-10">
         {/* user disclaimer */}
         <div className="flex flex-col">
-          <Card className="dark:bg-green-900 rounded-md flex flex-col w-fit max-w-[25rem] p-4 !gap-0 mb-4 bg-accent/10">
-            <span className="uppercase block font-bold">important note:</span>
+          <Card className="bg-accent/10 mb-4 flex w-fit max-w-[25rem] flex-col !gap-0 rounded-md p-4 dark:bg-green-900">
+            <span className="block font-bold uppercase">important note:</span>
             <p className="w-full max-w-[40rem]">
               Results are for guidance only and{" "}
-              <span className="uppercase font-bold">not</span> a definitive
+              <span className="font-bold uppercase">not</span> a definitive
               diagnosis.
               <br />
               <strong className="text-green-800 dark:text-green-400">

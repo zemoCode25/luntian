@@ -3,6 +3,7 @@ import "./global.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/context/NextThemeProvider";
 import { Suspense } from "react";
+import Providers from "@/lib/Providers";
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -25,7 +26,9 @@ export default function RootLayout({
         className={`${inter.className} bg-main antialiased dark:bg-green-950`}
       >
         <Suspense>
-          <ThemeProvider>{children}</ThemeProvider>
+          <Providers>
+            <ThemeProvider>{children}</ThemeProvider>
+          </Providers>
         </Suspense>
       </body>
     </html>
