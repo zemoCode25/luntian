@@ -3,14 +3,11 @@ import "./global.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/context/NextThemeProvider";
 import { Suspense } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });
-
-const queryClient = new QueryClient();
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,9 +25,7 @@ export default function RootLayout({
         className={`${inter.className} bg-main antialiased dark:bg-green-950`}
       >
         <Suspense>
-          <QueryClientProvider client={queryClient}>
-            <ThemeProvider>{children}</ThemeProvider>
-          </QueryClientProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </Suspense>
       </body>
     </html>

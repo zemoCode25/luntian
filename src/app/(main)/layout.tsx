@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "../global.css";
 import { Inter } from "next/font/google";
 import Header from "../(home)/components/Header";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -19,9 +22,11 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className={`${inter.className}`}>
-      <Header />
-      {children}
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className={`${inter.className}`}>
+        <Header />
+        {children}
+      </div>
+    </QueryClientProvider>
   );
 }
