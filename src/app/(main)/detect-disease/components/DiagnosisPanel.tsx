@@ -11,7 +11,6 @@ export default function DiagnosisPanel() {
   const [diagnosis, setDiagnosis] = useState<
     TDiseaseClassification | undefined
   >(undefined);
-  const [file, setFile] = useState<File | File[]>();
   const [imagePreview, setImagePreview] = useState<string | undefined>(
     undefined,
   );
@@ -26,7 +25,6 @@ export default function DiagnosisPanel() {
     setDiagnosis(response);
     const url = URL.createObjectURL(singleFile);
     setImagePreview(url);
-    setFile(singleFile);
   };
 
   return (
