@@ -8,10 +8,13 @@ import { TDiseaseClassification } from "@/types/TDiagnosisDetails";
 import { useState } from "react";
 
 export default function DiagnosisPanel() {
-  const [diagnosisList, setDiagnosisList] = useState<
-    TDiseaseClassification[] | undefined
+  const [diagnosis, setDiagnosis] = useState<
+    TDiseaseClassification | undefined
   >(undefined);
   const [file, setFile] = useState<File | File[]>();
+  const [imagePreview, setImagePreview] = useState<string | undefined>(
+    undefined,
+  );
 
   const mutation = useMutation({
     mutationFn: getPlantDisease,
@@ -20,7 +23,9 @@ export default function DiagnosisPanel() {
   const handleChange = async (file: File | File[]) => {
     const singleFile = Array.isArray(file) ? file[0] : file;
     const response = await mutation.mutateAsync(singleFile ?? null);
-    setDiagnosisList(response);
+    setDiagnosis(response);
+    const url = URL.createObjectURL(singleFile);
+    setImagePreview(url);
     setFile(singleFile);
   };
 
@@ -50,7 +55,7 @@ export default function DiagnosisPanel() {
           </Card>
           <DragFile handleChange={handleChange} />
         </div>
-        <DiagnosisResult diagnosisList={diagnosisList} />
+        <DiagnosisResult diagnosis={diagnosis} imagePreview={imagePreview} />
       </div>
     </section>
   );
