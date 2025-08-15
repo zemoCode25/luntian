@@ -1,13 +1,13 @@
 import { Card } from "@/components/ui/card";
-import { TDiseaseClassification } from "@/types/TDiagnosisDetails";
 import Image from "next/image";
 export default function DiagnosisResult({
-  diagnosis,
+  diseaseInfo,
   imagePreview,
 }: {
-  diagnosis: TDiseaseClassification | undefined;
+  diseaseInfo: any | undefined;
   imagePreview: string | undefined;
 }) {
+  console.log(diseaseInfo, "disease info");
   return (
     <Card className="border-accent min-h-[40rem] w-8/10 bg-transparent">
       <Image

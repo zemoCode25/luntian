@@ -2,7 +2,10 @@
 import DragFile from "./DragFile";
 import DiagnosisResult from "./DiagnosisResult";
 import { Card } from "@/components/ui/card";
-import { getPlantDisease } from "@/lib/actions/get-plant-disease";
+import {
+  getPlantDisease,
+  getPlantDiseaseInfo,
+} from "@/lib/actions/get-plant-disease";
 import { useMutation } from "@tanstack/react-query";
 import { TDiseaseClassification } from "@/types/TDiagnosisDetails";
 import { useState } from "react";
@@ -11,19 +14,35 @@ export default function DiagnosisPanel() {
   const [diagnosis, setDiagnosis] = useState<
     TDiseaseClassification | undefined
   >(undefined);
+  const [diseaseInfo, setDiseaseInfo] = useState<any>(undefined);
   const [imagePreview, setImagePreview] = useState<string | undefined>(
     undefined,
   );
 
-  const mutation = useMutation({
+  const diseaseReport = useMutation({
+    mutationFn: getPlantDiseaseInfo,
+  });
+
+  // Mutation to handle plant disease detection
+  // successful mutation will trigger disease report
+  const plantDisease = useMutation({
     mutationFn: getPlantDisease,
+    onSuccess: async (result) => {
+      if (result) {
+        console.log(result, "result");
+        const diseaseName = result[0].label;
+        const diseaseInfo = await diseaseReport.mutateAsync(diseaseName);
+        console.log(diseaseInfo, "disease info");
+        setDiseaseInfo(diseaseInfo);
+      }
+    },
   });
 
   const handleChange = async (file: File | File[]) => {
     const singleFile = Array.isArray(file) ? file[0] : file;
-    const response = await mutation.mutateAsync(singleFile ?? null);
+    const response = await plantDisease.mutateAsync(singleFile ?? null);
     const url = URL.createObjectURL(singleFile);
-    setDiagnosis(response);
+    setDiagnosis(response[0]);
     setImagePreview(url);
   };
 
@@ -53,7 +72,10 @@ export default function DiagnosisPanel() {
           </Card>
           <DragFile handleChange={handleChange} />
         </div>
-        <DiagnosisResult diagnosis={diagnosis} imagePreview={imagePreview} />
+        <DiagnosisResult
+          diseaseInfo={diseaseInfo}
+          imagePreview={imagePreview}
+        />
       </div>
     </section>
   );

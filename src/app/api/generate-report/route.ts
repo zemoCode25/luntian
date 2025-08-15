@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       model: "gemini-2.5-flash",
       contents: `
         You are an expert plant pathologist.
-        Given the disease name Powdery mildew, return a detailed plant disease diagnosis report.
+        Given the disease name ${prompt}, return a detailed plant disease diagnosis report.
         Follow the schema exactly.
         If any information is unknown, use "Information not available".
       `,

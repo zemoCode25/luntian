@@ -18,7 +18,7 @@ export async function getPlantDisease(file: File | null): Promise<any> {
 
 export async function getPlantDiseaseInfo(diseaseName: string): Promise<any> {
   try {
-    const response = await fetch(`/api/disease/${diseaseName}`, {
+    const response = await fetch(`/api/generate-report`, {
       method: "POST",
       body: JSON.stringify({ prompt: diseaseName }),
       headers: {
@@ -29,6 +29,8 @@ export async function getPlantDiseaseInfo(diseaseName: string): Promise<any> {
     if (!response.ok) {
       throw new Error(`Server error: ${response.statusText}`);
     }
+
+    console.log("Fetching plant disease info for:", diseaseName);
 
     const result = await response.json();
     return result;
