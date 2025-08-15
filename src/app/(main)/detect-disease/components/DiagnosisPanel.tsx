@@ -11,9 +11,6 @@ import { TDiseaseClassification } from "@/types/TDiagnosisDetails";
 import { useState } from "react";
 
 export default function DiagnosisPanel() {
-  const [diagnosis, setDiagnosis] = useState<
-    TDiseaseClassification | undefined
-  >(undefined);
   const [diseaseInfo, setDiseaseInfo] = useState<any>(undefined);
   const [imagePreview, setImagePreview] = useState<string | undefined>(
     undefined,
@@ -40,9 +37,8 @@ export default function DiagnosisPanel() {
 
   const handleChange = async (file: File | File[]) => {
     const singleFile = Array.isArray(file) ? file[0] : file;
-    const response = await plantDisease.mutateAsync(singleFile ?? null);
+    plantDisease.mutate(singleFile ?? null);
     const url = URL.createObjectURL(singleFile);
-    setDiagnosis(response[0]);
     setImagePreview(url);
   };
 
