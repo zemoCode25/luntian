@@ -22,8 +22,8 @@ export default function DiagnosisPanel() {
   const handleChange = async (file: File | File[]) => {
     const singleFile = Array.isArray(file) ? file[0] : file;
     const response = await mutation.mutateAsync(singleFile ?? null);
-    setDiagnosis(response);
     const url = URL.createObjectURL(singleFile);
+    setDiagnosis(response);
     setImagePreview(url);
   };
 

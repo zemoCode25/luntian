@@ -19,16 +19,3 @@ export default function DiagnosisResult({
     </Card>
   );
 }
-
-export function DiagnosisCard({
-  diagnosis,
-}: {
-  diagnosis: TDiseaseClassification;
-}) {
-  return (
-    <Card>
-      <h1>{diagnosis.label}</h1>
-      <p>{diagnosis.score}</p>
-    </Card>
-  );
-}
