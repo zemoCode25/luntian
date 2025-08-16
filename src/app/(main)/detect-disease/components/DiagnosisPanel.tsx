@@ -7,7 +7,6 @@ import {
   getPlantDiseaseInfo,
 } from "@/lib/actions/get-plant-disease";
 import { useMutation } from "@tanstack/react-query";
-import { TDiseaseClassification } from "@/types/TDiagnosisDetails";
 import { useState } from "react";
 
 export default function DiagnosisPanel() {
@@ -29,7 +28,7 @@ export default function DiagnosisPanel() {
         console.log(result, "result");
         const diseaseName = result[0].label;
         const diseaseInfo = await diseaseReport.mutateAsync(diseaseName);
-        console.log(diseaseInfo, "disease info");
+        console.log(diseaseReport.isError, "disease info");
         setDiseaseInfo(diseaseInfo);
       }
     },
