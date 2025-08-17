@@ -32,7 +32,7 @@ export default function DiagnosisPanel() {
         const diseaseName = result[0].label;
         const diseaseInfo = await diseaseReport.mutateAsync(diseaseName);
         console.log(diseaseReport.isError, "disease info");
-        setDiseaseInfo(diseaseInfo);
+        setDiseaseInfo(diseaseInfo ?? {});
       }
     },
   });

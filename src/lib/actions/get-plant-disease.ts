@@ -1,6 +1,10 @@
-export async function getPlantDisease(file: File | null): Promise<any> {
+import { TDiseaseData } from "@/types/TDiseaseData";
+
+export async function getPlantDisease(
+  file: File | null,
+): Promise<{ name: string; label: string }[]> {
   if (!file) {
-    return "No file selected";
+    return [{ name: "No file selected", label: "No file selected" }];
   }
 
   const response = await fetch("/api/disease", {
@@ -16,7 +20,9 @@ export async function getPlantDisease(file: File | null): Promise<any> {
   return result;
 }
 
-export async function getPlantDiseaseInfo(diseaseName: string): Promise<any> {
+export async function getPlantDiseaseInfo(
+  diseaseName: string,
+): Promise<TDiseaseData> {
   try {
     const response = await fetch(`/api/generate-report`, {
       method: "POST",
