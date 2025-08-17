@@ -1,5 +1,4 @@
-import { Card } from "@/components/ui/card";
-import Image from "next/image";
+import { Lens } from "@/components/magicui/lens";
 import sampleData from "@/lib/sampleData";
 import { TDiseaseData } from "@/types/TDiseaseData";
 export default function DiagnosisResult({
@@ -24,13 +23,15 @@ export default function DiagnosisResult({
   }
   return (
     <>
-      <picture className="border-accent relative mb-4 min-h-50 w-100 border-2">
-        <Image
-          alt="Image"
-          fill
-          src={imagePreview || "/images/rabbit_consulted.jpg"}
-        ></Image>
-      </picture>
+      <div className="border-accent border-2">
+        <Lens>
+          <img
+            alt={`Image of ${diseaseName?.common}`}
+            src={imagePreview || "/images/rabbit_consulted.jpg"}
+            className="h-60 w-100 object-cover"
+          ></img>
+        </Lens>
+      </div>
       <div className="flex w-full flex-col items-start">
         <header className="mb-4 w-full">
           <h1 className="mb-2 text-lg">
