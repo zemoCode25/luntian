@@ -23,7 +23,6 @@ const sampleData = {
       "Poor air circulation within the tree canopy",
       "Overhead irrigation that keeps foliage wet for extended periods",
       "Failure to remove infected plant debris (leaves and fruit) from previous seasons",
-      "Planting susceptible apple varieties in high-risk areas",
     ],
   },
   remedyTreatment: {
