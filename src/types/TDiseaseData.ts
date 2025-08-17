@@ -1,4 +1,4 @@
-export type DiseaseData = {
+export type TDiseaseData = {
   diseaseName: {
     common: string;
     scientific: string;

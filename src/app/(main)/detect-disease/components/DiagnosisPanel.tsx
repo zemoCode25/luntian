@@ -8,9 +8,12 @@ import {
 } from "@/lib/actions/get-plant-disease";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
+import { TDiseaseData } from "@/types/TDiseaseData";
 
 export default function DiagnosisPanel() {
-  const [diseaseInfo, setDiseaseInfo] = useState<any>(undefined);
+  const [diseaseInfo, setDiseaseInfo] = useState<TDiseaseData | undefined>(
+    undefined,
+  );
   const [imagePreview, setImagePreview] = useState<string | undefined>(
     undefined,
   );
@@ -67,10 +70,20 @@ export default function DiagnosisPanel() {
           </Card>
           <DragFile handleChange={handleChange} />
         </div>
-        <DiagnosisResult
-          diseaseInfo={diseaseInfo}
-          imagePreview={imagePreview}
-        />
+        <Card className="border-accent mb-4 flex max-h-[50rem] min-h-[40rem] w-8/10 flex-col items-center overflow-y-scroll bg-transparent p-10">
+          {plantDisease.isPending && !diseaseReport.isPending && (
+            <h1>Identifying disease...</h1>
+          )}
+
+          {diseaseReport.isPending && <h1>Generating report...</h1>}
+
+          {!plantDisease.isPending && !diseaseReport.isPending && (
+            <DiagnosisResult
+              diseaseInfo={diseaseInfo}
+              imagePreview={imagePreview}
+            />
+          )}
+        </Card>
       </div>
     </section>
   );
