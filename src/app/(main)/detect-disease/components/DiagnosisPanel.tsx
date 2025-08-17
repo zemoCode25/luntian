@@ -47,18 +47,22 @@ export default function DiagnosisPanel() {
   return (
     <section className="mx-auto flex w-[95%] max-w-[1280px] flex-col">
       <div className="mt-7 mb-3 flex flex-col items-center">
-        <h1 className="text-4xl font-bold">Detect Possible Plant Disease</h1>
-        <p className="mb-4 text-sm dark:text-gray-400">
+        <h1 className="text-center text-4xl font-bold">
+          Detect Possible Plant Disease
+        </h1>
+        <p className="mb-4 max-w-[20rem] text-center text-sm sm:max-w-[30rem] md:max-w-[35rem] dark:text-gray-400">
           Upload a photo and let AI identify signs of potential illness in your
           plants.
         </p>
       </div>
-      <div className="flex justify-between gap-10">
+      <div className="flex flex-col gap-10 lg:flex-row">
         {/* user disclaimer */}
-        <div className="flex flex-col">
-          <Card className="bg-accent/10 mb-4 flex w-fit max-w-[25rem] flex-col !gap-0 rounded-md p-4 dark:bg-green-900">
-            <span className="block font-bold uppercase">important note:</span>
-            <p className="w-full max-w-[40rem]">
+        <div className="flex w-full flex-col">
+          <Card className="bg-accent/10 mb-4 flex w-full flex-col items-center !gap-0 rounded-md p-4 lg:max-w-[35rem] lg:items-start dark:bg-green-900">
+            <span className="block text-center font-bold uppercase lg:text-left">
+              important note:
+            </span>
+            <p className="w-full max-w-[40rem] text-center lg:text-left">
               Results are for guidance only and{" "}
               <span className="font-bold uppercase">not</span> a definitive
               diagnosis.
@@ -70,7 +74,7 @@ export default function DiagnosisPanel() {
           </Card>
           <DragFile handleChange={handleChange} />
         </div>
-        <Card className="border-accent mb-4 flex max-h-[50rem] min-h-[40rem] w-8/10 flex-col items-center overflow-y-scroll bg-transparent p-10">
+        <Card className="border-accent mb-4 flex max-h-[50rem] min-h-[40rem] w-full flex-col items-center overflow-y-scroll bg-transparent p-10">
           {plantDisease.isPending && !diseaseReport.isPending && (
             <h1>Identifying disease...</h1>
           )}

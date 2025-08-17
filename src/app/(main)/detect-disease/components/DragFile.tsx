@@ -12,7 +12,7 @@ export default function DragFile({
   handleChange: (file: File | File[]) => void;
 }) {
   return (
-    <div className="max-w-[25rem]">
+    <div className="w-full lg:max-w-[35rem]">
       <FileUploader
         handleChange={handleChange}
         name="file"
