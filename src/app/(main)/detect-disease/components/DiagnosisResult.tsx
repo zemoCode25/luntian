@@ -31,10 +31,8 @@ export default function DiagnosisResult({
         <header className="mb-4 w-full">
           <h1 className="mb-2 text-lg">
             <span className="text font-semibold">Disease Name: </span>
-            {sampleData.diseaseName.common}
-            <span className="italic">
-              ({sampleData.diseaseName.scientific})
-            </span>
+            {diseaseName.common}
+            <span className="italic">({diseaseName.scientific})</span>
           </h1>
         </header>
         <section className="mb-4 w-full">
@@ -93,6 +91,16 @@ export default function DiagnosisResult({
             <h3 className="font-semibold">Chemical Options:</h3>
             <ul className="list-disc pl-5">
               {remedyTreatment.chemicalOptions.map((symptom, index) => (
+                <li key={index}>{symptom}</li>
+              ))}
+            </ul>
+          </article>
+        </section>
+        <section className="mb-4 w-full">
+          <h2 className="mb-2 text-lg font-semibold">Prevention Tips</h2>
+          <article className="mb-2">
+            <ul className="list-disc pl-5">
+              {preventionTips.map((symptom, index) => (
                 <li key={index}>{symptom}</li>
               ))}
             </ul>

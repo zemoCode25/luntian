@@ -42,16 +42,6 @@ const sampleData = {
     "Plant apple varieties that are resistant or highly tolerant to apple scab (e.g., 'Liberty', 'Prima', 'GoldRush', 'Honeycrisp' has some resistance).",
     "Ensure good air circulation around and within the apple tree canopy through proper pruning.",
     "Rake up and destroy all fallen leaves and fruit in the autumn to eliminate overwintering spores.",
-    "Avoid overhead irrigation; if necessary, water early in the morning to allow foliage to dry quickly.",
-    "Apply preventive fungicides during susceptible growth stages, especially in areas with a history of scab and during wet springs.",
-    "Monitor trees regularly for early signs of infection.",
-  ],
-  complications: [
-    "Significant reduction in fruit quality, making fruit unmarketable.",
-    "Premature fruit drop, leading to yield loss.",
-    "Stunted growth and reduced vigor of the tree over several seasons if severe infection persists.",
-    "Increased susceptibility to other diseases or pests due to weakened tree health.",
-    "Severe defoliation can reduce the tree's ability to store energy for the following year's growth and fruit production.",
   ],
 };
 
