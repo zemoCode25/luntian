@@ -38,13 +38,13 @@ export async function POST(request: NextRequest) {
               type: Type.OBJECT,
               properties: {
                 overview: { type: Type.STRING },
-                symptoms: { type: Type.ARRAY, items: { type: Type.STRING } },
-                affectedParts: {
+                symptoms: {
                   type: Type.ARRAY,
                   items: { type: Type.STRING },
+                  maxItems: 3,
                 },
               },
-              propertyOrdering: ["overview", "symptoms", "affectedParts"],
+              propertyOrdering: ["overview", "symptoms"],
             },
             possibleCauses: {
               type: Type.OBJECT,
@@ -52,11 +52,13 @@ export async function POST(request: NextRequest) {
                 environmentalConditions: {
                   type: Type.ARRAY,
                   items: { type: Type.STRING },
+                  maxItems: 3,
                 },
                 pathogenType: { type: Type.STRING },
                 cultivationPractices: {
                   type: Type.ARRAY,
                   items: { type: Type.STRING },
+                  maxItems: 3,
                 },
               },
               propertyOrdering: [
@@ -71,11 +73,11 @@ export async function POST(request: NextRequest) {
                 immediateAction: { type: Type.STRING },
                 organicOptions: {
                   type: Type.ARRAY,
-                  items: { type: Type.STRING },
+                  items: { type: Type.STRING, maxItems: 2 },
                 },
                 chemicalOptions: {
                   type: Type.ARRAY,
-                  items: { type: Type.STRING },
+                  items: { type: Type.STRING, maxItems: 2 },
                 },
               },
               propertyOrdering: [
@@ -84,8 +86,10 @@ export async function POST(request: NextRequest) {
                 "chemicalOptions",
               ],
             },
-            preventionTips: { type: Type.ARRAY, items: { type: Type.STRING } },
-            complications: { type: Type.ARRAY, items: { type: Type.STRING } },
+            preventionTips: {
+              type: Type.ARRAY,
+              items: { type: Type.STRING, maxItems: 2 },
+            },
           },
           propertyOrdering: [
             "diseaseName",
@@ -93,7 +97,6 @@ export async function POST(request: NextRequest) {
             "possibleCauses",
             "remedyTreatment",
             "preventionTips",
-            "complications",
           ],
         },
       },
