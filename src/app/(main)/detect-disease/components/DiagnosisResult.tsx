@@ -17,7 +17,6 @@ export default function DiagnosisResult({
     remedyTreatment,
     preventionTips,
   } = diseaseInfo ?? {};
-  sampleData;
   if (!diseaseInfo) {
     return <p>No disease information available.</p>;
   }
