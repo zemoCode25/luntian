@@ -1,5 +1,5 @@
-import DiagnosisPanel from "./components/DiagnosisPanel";
+import DiagnosisPage from "./components/DiagnosisPage";
 
 export default function Page() {
-  return <DiagnosisPanel />;
+  return <DiagnosisPage />;
 }
